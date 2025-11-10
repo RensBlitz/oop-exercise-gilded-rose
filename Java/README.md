@@ -1,30 +1,31 @@
 # Gilded Rose starting position in Java
 
-## Run the TextTest Fixture from Command-Line
+## Running Tests
+
+### Run JUnit Tests
 
 ```
-./gradlew -q text
+./gradlew test
 ```
 
-### Specify Number of Days
-
-For e.g. 10 days:
+Or with Maven:
 
 ```
-./gradlew -q text --args 10
+mvn test
 ```
 
-You should make sure the gradle commands shown above work when you execute them in a terminal before trying to use TextTest (see below).
+### Run Manual Test Fixture
 
+The `TexttestFixture` class provides a simple way to manually verify the code by running it with sample items and viewing the output:
 
-## Run the TextTest approval test that comes with this project
+```
+./gradlew text
+```
 
-There are instructions in the [TextTest Readme](../texttests/README.md) for setting up TextTest. What's unusual for the Java version is there are two executables listed in [config.gr](../texttests/config.gr) for Java. The first uses Gradle wrapped in a python script. Uncomment these lines to use it:
+To specify the number of days to simulate (e.g., 10 days):
 
-    executable:${TEXTTEST_HOME}/Java/texttest_rig.py
-    interpreter:python
+```
+./gradlew text --args "10"
+```
 
-The other relies on your CLASSPATH being set correctly in [environment.gr](../texttests/environment.gr). Uncomment these lines to use it instead:
-
-    executable:com.gildedrose.TexttestFixture
-    interpreter:java
+This will print the inventory state for each day, showing how items change over time.

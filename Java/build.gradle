@@ -20,8 +20,9 @@ test {
     useJUnitPlatform()
 }
 
-task texttest(type: JavaExec) {
+task text(type: JavaExec) {
     main = "com.gildedrose.TexttestFixture"
     classpath = sourceSets.test.runtimeClasspath
-    args "30"
+    // Arguments can be passed via: ./gradlew text --args "10"
+    // If no arguments are provided, TexttestFixture defaults to 2 days
 }
